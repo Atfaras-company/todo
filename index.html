@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <header>This is the header</header>
+    <div class="container">
+      <h2>ToDo App</h2>
+      <div class="border">
+        <input type="text" id="works" />
+        <button onclick="add()">Save</button>
+      </div>
+      <ul class="list"></ul>
+    </div>
+
+    <script src="app.js"></script>
   </body>
 </html>
