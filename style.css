@@ -11,7 +11,7 @@ body{
     height: 120px;
     border: 2px solid black;
     margin-left: 43%;
-    margin-top: 15%;
+    margin-top: 3%;
     background-color: grey;
 }
 .border input{
@@ -30,8 +30,55 @@ body{
     background-color: #3bddfd;
     color: black;
     font-family: Arial Black;
+    
 }
 .border button:hover{
     background-color: red;
     color: white;
+}
+
+.todos {
+    margin-right: 5px;
+    padding: 0 20px 10px 25px;
+    list-style: none;
+  }
+  .todos li{
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  .todo{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid black;
+    width: 600px;
+    margin-left: 33.5%;
+    margin-top: 20px;
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: red;
+    font: bolder;
+    text-shadow: 1px 1px black;
+  }
+  #edit{
+    margin-left: 30%;
+    cursor: pointer;
+  }
+  #delete{
+    margin-left: 3%;
+    cursor: pointer;
+  }
+  #completed{
+    width: 20px;
+    height: 25px;
+    margin-left: 2%;
+  }
+  h2{
+    text-align: center;
+    margin-top: 15%;
+    font-size: 30px;
+    color: white;
+    background-color: #3bddfd;
+    text-shadow: 1px 2px black;
 }
