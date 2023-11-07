@@ -21,23 +21,23 @@ body {
   display: flex;
   flex-direction: column;
 }
-.to-do-app {
+.todoApp {
   width: 100%;
   padding: 20px;
   border-radius: 5px;
   background-color: whitesmoke;
   border: 1px solid #d3d3d3;
 }
-.to-do-app h2 {
+.todoApp h2 {
   padding: 10px;
 }
-.to-do-app input {
+.todoApp input {
   width: 250px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
 }
-.to-do-app button {
+.todoApp button {
   width: fit-content;
   padding: 5px;
   cursor: pointer;
@@ -45,13 +45,13 @@ body {
   border-radius: 5px;
   background-color: whitesmoke;
 }
-.to-do-app button:hover {
+.todoApp button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 ul  {
   font-size: 25px;
 }
-.to-do-list {
+.todoList {
   margin-top: 20px;
   margin-right: 5px;
   padding: 0 20px 10px 25px;
@@ -60,7 +60,7 @@ ul  {
   gap: 15px;
   list-style: none;
 }
-.to-do-list li{
+.todoList li{
   margin-left: -25px;
   font-size: small;
   background-color: rgb(34, 220, 198);

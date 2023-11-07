@@ -5,28 +5,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  </head> 
-  <body>  
+  </head>
+  <body>
     <div class="container">
-      <div class="container">
-        <div class="to-do-app">
-          <h2>To-do App</h2>
-          <br>
-          <input type="text" id="item" placeholder="Enter item">
-          <br>
-          <br>
-          <button onclick="add()">Add Item </button>
-          <button onclick="del()">Clear all</button>
-        </div>
-        <ul class="to-do-list"> 
-   
-         </ul></ul>
+      <div class="todoApp">
+        <h2>To-do App</h2>
+        <br />
+        <input type="text" id="todo" placeholder="Enter todo" />
+        <br />
+        <br />
+        <button onclick="addTodo()">Add Item</button>
+        <button onclick="deleteTodo()">Clear all</button>
       </div>
-  
-    <script src="app.js"></script>    <script
+      <ul class="todoList"></ul>
+    </div>
+
+    <script src="app.js"></script>
+    <script
       src="https://kit.fontawesome.com/301b40817f.js"
       crossorigin="anonymous"
     ></script>
   </body>
 </html>
-

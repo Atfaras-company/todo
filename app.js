@@ -1,24 +1,25 @@
-const ul = document.querySelector('ul');
-const input = document.getElementById('item');
-let itemsArray = localStorage.getItem('items') ?
-JSON.parse(localStorage.getItem('items')) : [];
+const ul = document.querySelector("ul.todoList");
+const input = document.getElementById("todo");
+let itemsArray = localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : [];
 
 itemsArray.forEach(addTask);
-function addTask(text){
-  const li = document.createElement('li');
-  li.innerHTML = text + '<div id="icons"> <i id="edit" class="fa-solid fa-pen-to-square"></i><i id="delete" class="fa-solid fa-trash"></i><i class="fa-solid fa-check"></i></div> ';
+function addTask(text) {
+  const li = document.createElement("li");
+  li.innerHTML =
+    text +
+    '<div id="icons"> <i id="edit" class="fa-solid fa-pen-to-square"></i><i id="delete" class="fa-solid fa-trash"></i><i class="fa-solid fa-check"></i></div> ';
   ul.appendChild(li);
 }
 
-function add(){
+function addTodo() {
   itemsArray.push(input.value);
-  localStorage.setItem('items', JSON.stringify(itemsArray));
+  localStorage.setItem("todos", JSON.stringify(itemsArray));
   addTask(input.value);
-  input.value = '';
-} 
+  input.value = "";
+}
 
-function del(){
+function deleteTodo() {
   localStorage.clear();
-  ul.innerHTML = '';
+  ul.innerHTML = "";
   itemsArray = [];
 }
