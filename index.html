@@ -8,18 +8,21 @@
   </head> 
   <body>  
     <div class="container">
-      <h2>ToDo App</h2>
-      <div class="border">
-        <input type="text" id="inputTodo" />
-        <button onclick="addTodo()">Save</button>
+      <div class="container">
+        <div class="to-do-app">
+          <h2>To-do App</h2>
+          <br>
+          <input type="text" id="item" placeholder="Enter item">
+          <br>
+          <br>
+          <button onclick="add()">Add Item </button>
+          <button onclick="del()">Clear all</button>
+        </div>
+        <ul class="to-do-list"> 
+   
+         </ul></ul>
       </div>
-      <div class="todolist">
-        <ul class="todos">
-         <i id="edit" class="fa-solid fa-pen-to-square"></i>
-            <i id="delete" class="fa-solid fa-trash"></i></ul>
-      </div>
-    </div>
-
+  
     <script src="app.js"></script>    <script
       src="https://kit.fontawesome.com/301b40817f.js"
       crossorigin="anonymous"
