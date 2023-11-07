@@ -82,3 +82,8 @@ body{
     background-color: #3bddfd;
     text-shadow: 1px 2px black;
 }
+li{
+  font-size: small;
+  background-color: whitesmoke;
+  padding: 20px;
+}
