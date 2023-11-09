@@ -1,19 +1,20 @@
-const ul = document.querySelector("ul.todoList");
-const input = document.getElementById("todo");
-let itemsArray = localStorage.getItem("todos")
+const todoList = document.querySelector("ul.todoList");
+const addInput = document.getElementById("todo");
+let todosArray = localStorage.getItem("todos")
   ? JSON.parse(localStorage.getItem("todos"))
   : [];
 
-itemsArray.forEach((item) => {
+todosArray.forEach((item) => {
   addTask(item);
 });
+
 function addTask(item) {
   const li = `
-    <li>
-      <h2 id="title">${item.title}</h2>
+    <li id="todo${item.id}">
+      <h2>${item.title}</h2>
       <div id="icons">
         <i
-          id="edit"
+          id="edit${item.id}"
           onclick="editTodo(${item.id})"
           class="fa-solid fa-pen-to-square"
         ></i
@@ -21,73 +22,74 @@ function addTask(item) {
           item.id
         })" class="fa-solid fa-trash"></i
         >
-        <input onclick="checkbox()" id="checkbox" type="checkbox" ${item.completed ? "checked" : ""}>
+        <input onclick="completedTodo(${
+          item.id
+        })" id="completedTodo" type="checkbox" ${
+    item.completed ? "checked" : ""
+  }>
       </div>
     </li>
     `;
-  console.log(ul);
-  ul.innerHTML += li;
+  todoList.innerHTML += li;
 }
 
 function addTodo() {
   const newTodo = {
-    id: itemsArray.length,
-    title: input.value,
+    id: todosArray.length,
+    title: addInput.value,
     completed: false,
   };
-  itemsArray.push(newTodo);
-  localStorage.setItem("todos", JSON.stringify(itemsArray));
+  todosArray.push(newTodo);
+  localStorage.setItem("todos", JSON.stringify(todosArray));
   addTask(newTodo);
-  input.value = "";
+  addInput.value = "";
 }
 
 function deleteAllTodo() {
   localStorage.clear();
-  ul.innerHTML = "";
-  itemsArray = [];
+  todoList.innerHTML = "";
+  todosArray = [];
 }
-let isEdit = true
-function editTodo(id) {
-  if (isEdit) {
-    const editedTodo = prompt("Write new todo ");
 
-  itemsArray = itemsArray.map((item) => {
+let isEdit = true;
+function editTodo(id) {
+  const editedTodo = prompt("Write new todo ");
+  todosArray = todosArray.map((item) => {
     if (item.id === id) {
-      console.log(id);
       item.title = editedTodo;
     }
-
-    console.log(item);
-
     return item;
   });
 
-  ul.innerHTML = "";
-  itemsArray.forEach((item) => {
+  todoList.innerHTML = "";
+  todosArray.forEach((item) => {
     addTask(item);
-
-    
   });
+  localStorage.setItem("todos", JSON.stringify(todosArray));
+}
+
+function deleteTodo(id) {
+  todosArray = todosArray.filter((item) => item.id !== id);
+  todoList.innerHTML = "";
+  todosArray.forEach((item) => {
+    addTask(item);
+  });
+  localStorage.setItem("todos", JSON.stringify(todosArray));
+}
+
+function completedTodo(id) {
+  var checked = false;
+  if (document.querySelector("#completedTodo:checked")) {
+    checked = true;
+    document.getElementById("todo" + id).style.backgroundColor = "green";
+    document.getElementById("todo" + id).style.textDecoration = "line-through";
+    document.getElementById("todo" + id).style.opacity = "0.6";
+    document.getElementById("edit" + id).style.visibility = "hidden";
+  } else {
+    document.getElementById("edit" + id).style.visibility = "visible";
+    document.getElementById("todo" + id).style.textDecoration = "blink  ";
+    document.getElementById("todo" + id).style.opacity = "1";
+    document.getElementById("todo" + id).style.backgroundColor =
+      "rgb(34, 220, 198)";
   }
 }
-function deleteTodo(id) {
-  itemsArray = itemsArray.filter((item) => item.id !== id);
-ul.innerHTML = "" ;
-  itemsArray.forEach((item) => {
-    addTask(item);
-  });
-  localStorage.setItem("todos", JSON.stringify(itemsArray));
-}
-function checkbox(id) {
-
-  var checked = false;
-  if (document.querySelector('#checkbox:checked')) {
-    isEdit = false;
-     checked = true;
-     document.getElementById("title").style.backgroundColor= 'green';
-     document.getElementById("edit").style.visibility='hidden' ;
-   }else{
-    isEdit = true ;
-    document.getElementById("edit").style.visibility='visible' ;
-   }
-   }
