@@ -6,23 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+  <body onload="completedTodo()">
     <div class="container">
-      <h2>ToDo App</h2>
-      <div class="border">
-        <input type="text" id="addInput" />
-        <button onclick="addTodo()">Save</button>
+      <div class="todoApp">
+        <form action=""  onclick="addTodo()">
+        <h2>To-do App</h2>
+        <br />
+        <input required type="text" id="todo" placeholder="Enter todo" />
+        <br />
+        <br />
+        <button type="submit">Add Item</button>
+        <button onclick="deleteAllTodo()">Clear all</button>
       </div>
-      <div class="todolist">
-        <ul class="todos">
-          <li class="todo">
-            <span> Need go to work until 6 p.m</span>
-            <i id="edit" class="fa-solid fa-pen-to-square"></i>
-            <i id="delete" class="fa-solid fa-trash"></i>
-            <input type="checkbox" name="" id="completed" />
-          </li>
-        </ul>
-      </div>
+    </form>
+      <ul class="todoList"></ul>
     </div>
 
     <script src="app.js"></script>
