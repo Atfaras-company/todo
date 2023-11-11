@@ -63,7 +63,7 @@ ul  {
 .todoList li{
   margin-left: -25px;
   font-size: small;
-  background-color: rgb(34, 220, 198);
+  background-color: lightblue;
   padding: 20px;
   width: 365px;
 }
@@ -78,4 +78,9 @@ cursor: pointer;
 }
 li{
   width: 365px;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
 }
